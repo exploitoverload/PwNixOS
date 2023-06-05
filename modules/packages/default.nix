@@ -1,0 +1,69 @@
+{ inputs, pkgs, lib, config, ... }:
+
+with lib;
+let cfg = config.modules.packages;
+in {
+    options.modules.packages = { enable = mkEnableOption "packages"; };
+    config = mkIf cfg.enable {
+        home.packages = with pkgs; [
+          # Basic Tools
+          exa
+          fzf
+          ripgrep
+          ffmpeg
+          gnupg
+          imagemagick
+          libnotify
+          git
+          bat
+          wget
+          neovim
+          gcc
+          cmake
+          unzip
+          pavucontrol
+          playerctl
+          swaylock-fancy
+          swaylock-effects
+          brightnessctl
+          inputs.hypr-contrib.packages.${pkgs.system}.grimblast
+          openssl
+          # Proggrmming
+          python3
+          python311Packages.pip
+          lua
+          nodejs
+          # GUI Applications
+          kitty
+          librewolf
+          firefox-wayland
+          wdisplays
+          wireshark
+          cherrytree
+          burpsuite
+          cinnamon.nemo-with-extensions
+          cinnamon.nemo-emblems
+          cinnamon.nemo-fileroller
+          cinnamon.folder-color-switcher
+          # Offensive Tools and Applications
+          nmap
+          crackmapexec
+          gobuster
+          theharvester
+          ffuf
+          wfuzz
+          metasploit
+          exploitdb
+          sqlmap
+          smbmap
+          arp-scan
+          enum4linux
+          dnsrecon
+          testssl
+          hashcat
+          john
+          thc-hydra
+          whatweb
+        ];
+      };
+  }
