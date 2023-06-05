@@ -5,6 +5,15 @@
 ## Introduction
 
 Welcome to PwNixOS, a NixOS Flake that combines a strong focus on productivity with powerful tools for hacking. 
+
+## Screenshots
+
+![Terminal](pics/readme/terminal.png)
+
+![Neovim and Gtk themes](pics/readme/vim_and_gtk.png)
+
+![Floating layout](pics/readme/floating.png)
+
 ## Features
 
 ### Graphical Excellence
@@ -41,3 +50,9 @@ To get started with PwNixOS, follow these steps:
 8. Reboot and cross fingers.
 
 For more detailed information and documentation, please refer to the [official NixOS manual](https://nixos.org/manual/nixos/stable/index.html).
+
+## Special thanks to:
+
+* [Notusknot dotfiles](https://github.com/notusknot/dotfiles-nix)
+* [Catppuccin theme](https://github.com/catppuccin/catppuccin)
+* [Rubyowo dotfiles](https://github.com/rubyowo/dotfiles)
