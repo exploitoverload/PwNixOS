@@ -28,11 +28,22 @@ in {
           brightnessctl
           inputs.hypr-contrib.packages.${pkgs.system}.grimblast
           openssl
+          cifs-utils
+          mlocate
+          nfs-utils
+          openvpn
+          p7zip
+          samba
+          net-snmp
+          tcpdump
+          inetutils 
+          unrar
           # Proggrmming
           python3
           python311Packages.pip
           lua
           nodejs
+          php
           # GUI Applications
           kitty
           librewolf
@@ -64,6 +75,12 @@ in {
           john
           thc-hydra
           whatweb
+          evil-winrm
+          crunch
+          hashcat-utils
+          proxychains
+          cadaver
+          wpscan
         ];
       };
   }
