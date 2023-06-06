@@ -44,6 +44,7 @@
             "critical": 15
         },
         "format": "{icon}",
+        "tooltip-format": "{capacity}%",
         "format-charging": "󰂄",
         "format-plugged": "󰚥",
         "format-alt": "{icon}",
