@@ -16,9 +16,9 @@ Welcome to PwNixOS, a NixOS Flake that combines a strong focus on productivity w
 
 ## Features
 
-### Graphical Excellence
+### UnixPorn at its core
 
-PwNixOS places a strong emphasis on delivering a top-notch graphical experience. PwNixOS provides a visually appealing and productivity focused interface. 
+PwNixOS places a strong emphasis on delivering a top-notch graphical experience by providing a visually appealing and productivity-focused interface. 
 
 ### Hacking Tools
 
@@ -42,12 +42,17 @@ To get started with PwNixOS, follow these steps:
 
 1. [Installation](https://nixos.org/manual/nixos/stable/index.html#ch-installation): Install NixOS on your machine by following the official installation guide.
 2. Clone this repo: `git clone https://github.com/exploitoverload/PwNixOS.git ~/.config/nixos`
-3. Edit username: By default, the username for all the configuration is `d3fault` and the hostname is `pwnix`. You can change this as you want by editing in all the files. `grep -i -R d3fault ~/.config/nixos/` and `grep -i -R pwnix ~/.config/nixos/` are usefull.
+3. Edit username: By default, the username for all the configuration is `d3fault` and the hostname is `pwnix`. You can change this as you want by editing in all the files (don't forget to rename the folder inside hosts). `grep -i -R d3fault ~/.config/nixos/` and `grep -i -R pwnix ~/.config/nixos/` are usefull.
 4. Copy your specific hardware-configuration.nix file: You need to copy you hardware-configuration.nix file located at /etc/nixos/hardware-configuration.nix to the host entry that fits best to your host.
 5. Enable Nix-Command and Flakes options: Edit your configuration.nix file located at /etc/nixos/configuration.nix adding this line -> `nix.settings.experimental-features = [ "nix-command" "flakes" ];`.
 6. Rebuild your system (without the flake): Open a terminal and run -> `sudo nixos-rebuild switch`. 
 7. Apply the flake: Open a terminal and inside `~/.config/nixos/` run `sudo nixos-rebuild switch --flake <host type> --upgrade`.
 8. Reboot and cross fingers.
+
+## TODO
+
+- [ ] Add [NvChad](https://github.com/NvChad/NvChad) to the neovim configuration.
+- [ ] Add IP Addresses for current interface to waybar with clip to copy. 
 
 For more detailed information and documentation, please refer to the [official NixOS manual](https://nixos.org/manual/nixos/stable/index.html).
 
