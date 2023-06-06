@@ -38,6 +38,7 @@ in {
           tcpdump
           inetutils 
           unrar
+          distrobox
           # Proggrmming
           python3
           python311Packages.pip
