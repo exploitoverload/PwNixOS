@@ -56,6 +56,7 @@ in {
           cinnamon.nemo-emblems
           cinnamon.nemo-fileroller
           cinnamon.folder-color-switcher
+          remmina
           # Offensive Tools and Applications
           nmap
           crackmapexec
