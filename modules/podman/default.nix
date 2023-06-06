@@ -6,7 +6,7 @@
 
             dockerCompat = true;
 
-            defaultNetwork.dnsname.enable = true;
+            defaultNetwork.settings.dns_enabled = true;
           };
       };
   }
