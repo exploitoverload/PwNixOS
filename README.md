@@ -46,7 +46,7 @@ To get started with PwNixOS, follow these steps:
 4. Copy your specific hardware-configuration.nix file: You need to copy you hardware-configuration.nix file located at /etc/nixos/hardware-configuration.nix to the host entry that fits best to your host.
 5. Enable Nix-Command and Flakes options: Edit your configuration.nix file located at /etc/nixos/configuration.nix adding this line -> `nix.settings.experimental-features = [ "nix-command" "flakes" ];`.
 6. Rebuild your system (without the flake): Open a terminal and run -> `sudo nixos-rebuild switch`. 
-7. Apply the flake: Open a terminal and inside `~/.config/nixos/` run `sudo nixos-rebuild switch --flake <host type> --upgrade`.
+7. Apply the flake: Open a terminal and inside `~/.config/nixos/` run `sudo nixos-rebuild boot --flake <host type> --upgrade`.
 8. Reboot and cross fingers.
 
 ## TODO
