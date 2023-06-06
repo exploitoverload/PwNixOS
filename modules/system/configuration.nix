@@ -119,6 +119,7 @@
 # Set up networking and secure it
   networking = {
     networkmanager.enable = true;
+    firewall.enable = false; # This one is necessary to expose ports to the netwok. Usefull for smbserver, responder, http.server, ...
   };
 
 # Set environment variables
