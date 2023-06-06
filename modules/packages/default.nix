@@ -44,6 +44,7 @@ in {
           lua
           nodejs
           php
+          jdk
           # GUI Applications
           kitty
           librewolf
