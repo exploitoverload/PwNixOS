@@ -53,7 +53,7 @@ To get started with PwNixOS, follow these steps:
 ## TODO
 
 - [ ] Add [NvChad](https://github.com/NvChad/NvChad) to the neovim configuration.
-- [ ] Add IP Addresses for current interface to waybar with clip to copy. 
+- [ ] Add IP Addresses for current interface to waybar with click to copy. 
 
 For more detailed information and documentation, please refer to the [official NixOS manual](https://nixos.org/manual/nixos/stable/index.html).
 
