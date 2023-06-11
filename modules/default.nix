@@ -11,5 +11,6 @@
     ./zsh
     ./fuzzel
     ./gtk
+    ./direnv
   ];
 }

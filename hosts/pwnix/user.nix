@@ -13,5 +13,6 @@
       zsh.enable = true;
       fuzzel.enable = true;
       gtk.enable = true;
+      direnv.enable = true;
     };
 }
