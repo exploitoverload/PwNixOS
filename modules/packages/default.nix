@@ -39,6 +39,7 @@ in {
           inetutils 
           unrar
           distrobox
+          dig
           # Proggrmming
           python3
           python311Packages.pip
@@ -72,6 +73,7 @@ in {
           smbmap
           arp-scan
           enum4linux
+          enum4linux-ng
           dnsrecon
           testssl
           hashcat
@@ -84,6 +86,19 @@ in {
           proxychains
           cadaver
           wpscan
+          adreaper
+          certipy
+          coercer
+          gomapenum
+          kerbrute
+          nbtscanner
+          python311Packages.lsassy
+          python311Packages.pypykatz
+          smbscan
+          davtest
+          adenum
+          ldapdomaindump
+
         ];
       };
   }
