@@ -15,6 +15,7 @@ in {
           imagemagick
           libnotify
           git
+					file
           bat
           wget
           neovim
