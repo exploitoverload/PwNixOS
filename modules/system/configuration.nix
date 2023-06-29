@@ -137,6 +137,7 @@
     DISABLE_QT5_COMPAT = "0";
     LIBSEAT_BACKEND = "logind";
     GTK_USE_PORTAL = "1";
+    NIXPKGS_ALLOW_UNFREE = "1";
   };
 
 # Security 
