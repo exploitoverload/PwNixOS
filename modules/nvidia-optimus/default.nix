@@ -10,6 +10,7 @@
     vulkan-validation-layers
     vulkan-tools
     libva-utils
+    cudatoolkit
   ];
 
   hardware.nvidia.prime = {
