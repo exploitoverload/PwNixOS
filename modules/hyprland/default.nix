@@ -13,6 +13,6 @@ in {
     home.file.".config/hypr/hyprland.conf".source = ./hyprland.conf;
     home.file.".config/hypr/hyprpaper.conf".source = ./hyprpaper.conf;
     home.file.".config/hypr/wallpaper.png".source = ../../pics/wallpaper.png;
-    home.file.".config/hypr/nix-black-4k.png".source = ../../pics/PwNixOS-Wallpaper.png;
+    home.file.".config/hypr/PwNixOS-Wallpaper.png".source = ../../pics/PwNixOS-Wallpaper.png;
   };
 }
