@@ -36,6 +36,10 @@ NixOS follows a declarative approach to system configuration. Instead of making 
 
 NixOS prioritizes security and adopts a "secure by default" philosophy. With features like the capability-based security model, sandboxing of applications, and strict package signing policies, PwNixOS provides a robust and secure environment for your computing needs. This ensures that your system remains resilient against potential vulnerabilities and threats.
 
+## Custom packages
+
+This flake has custom hacking tools that are uploaded to the NUR. The purpose of these tools is to fill in the gaps that exist today in the official repositories and create a full arsenal of tools, with well-known tools such as [BloodHound](https://github.com/BloodHoundAD/BloodHound) or [impacket](https://github.com/fortra/impacket) and lesser-known tools such as [psudohash](https://github.com/t3l3machus/psudohash).
+
 ## Getting Started
 
 To get started with PwNixOS, follow these steps:

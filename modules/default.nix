@@ -12,5 +12,6 @@
     ./fuzzel
     ./gtk
     ./direnv
+    ./pwnixos-packages
   ];
 }

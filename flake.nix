@@ -7,10 +7,14 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     hypr-contrib.url = "github:hyprwm/contrib";
   };
 
-  outputs = { nixpkgs, home-manager, ... }@inputs:
+  outputs = { nixpkgs, home-manager, nur, ... }@inputs:
     let 
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system}; 
@@ -32,6 +36,9 @@
                 extraSpecialArgs = { inherit inputs; };
                 users.d3fault = (./. + "/hosts/${hostname}/user.nix");
               };
+              nixpkgs.overlays = [
+                nur.overlay
+              ];
             }
           ];
           specialArgs = {inherit inputs; };

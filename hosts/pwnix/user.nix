@@ -14,5 +14,6 @@
       fuzzel.enable = true;
       gtk.enable = true;
       direnv.enable = true;
+      pwnixos-packages.enable = true;
     };
 }
