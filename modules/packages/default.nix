@@ -33,6 +33,7 @@ in {
           mlocate
           nfs-utils
           openvpn
+          wireguard-tools
           p7zip
           samba
           net-snmp
