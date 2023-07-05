@@ -9,11 +9,11 @@ in {
     home.packages = with pkgs; [
       dconf gtk-engine-murrine gnome.gnome-themes-extra gtk3
     ];
-    home.sessionVariables.GTK_THEME = "Catppuccin-Macchiato-Compact-Mauve-Dark";
+    home.sessionVariables.GTK_THEME = "Catppuccin-Macchiato-Compact-Mauve-dark";
     gtk = {
       enable = true;
       theme = {
-        name = "Catppuccin-Macchiato-Compact-Mauve-Dark";
+        name = "Catppuccin-Macchiato-Compact-Mauve-dark";
         package = pkgs.catppuccin-gtk.override {
           accents = [ "mauve" ];
           size = "compact";
@@ -22,8 +22,8 @@ in {
         };
       };
       cursorTheme = {
-        name = "Catppuccin-Mocha-Mauve-Cursors";
-        package = pkgs.catppuccin-cursors.mochaMauve;
+        name = "Catppuccin-Macchiato-Mauve-Cursors";
+        package = pkgs.catppuccin-cursors.macchiatoMauve;
       };
       iconTheme = {
           name = "Papirus-Dark";
