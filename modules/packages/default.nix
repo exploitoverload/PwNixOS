@@ -99,7 +99,7 @@ in {
           davtest
           adenum
           ldapdomaindump
-
+          python311Packages.pypykatz
         ];
       };
   }
