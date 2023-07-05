@@ -15,6 +15,7 @@ in {
           polenum
           psudohash
           seclists
+          maltego
         ];
       };
   }
