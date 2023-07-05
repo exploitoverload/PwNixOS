@@ -17,8 +17,8 @@ in {
       dotDir = ".config/zsh";
 
       enableCompletion = true;
-      enableAutosuggestions = true;
-      enableSyntaxHighlighting = true;
+      autosuggestions.enable = true;
+      syntaxHighlighting.enable = true;
 
       shellAliases = {
         cat = "bat";
