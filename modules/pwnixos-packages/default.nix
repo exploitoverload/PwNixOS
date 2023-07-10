@@ -10,7 +10,6 @@ in {
           ADCSKiller
           BloodHound
           bloodhound-python
-          Responder
           impacket
           polenum
           psudohash

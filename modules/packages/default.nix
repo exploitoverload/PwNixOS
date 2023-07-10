@@ -101,6 +101,7 @@ in {
           adenum
           ldapdomaindump
           python311Packages.pypykatz
+          responder
         ];
       };
   }
