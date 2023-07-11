@@ -54,6 +54,48 @@ To get started with PwNixOS, follow these steps:
 8. Apply the flake: Open a terminal and inside `~/.config/nixos/` run `sudo nixos-rebuild boot --flake <host type> --upgrade`.
 9. Reboot and cross fingers.
 
+## Keyboard Shortcuts
+
+### General
+
+| Action | Shortcut |
+| ------ | -------- |
+| Launch Terminal (kitty) | `WIN` + `ENTER` |
+| Close App | `WIN` + `Q` |
+| Launch App Selector | `WIN` + `D` |
+| Show Power Menu | `WIN` + `X` |
+| Lock Screen | `WIN` + `L` |
+| Change Workspace | `WIN` + `1-9` |
+| Move focused app to Workspace | `WIN` + `SHIFT` + `1-9` |
+| Toggle floating mode in foused app | `WIN` + `V` |
+| Toggle fullscreen mode in focused app | `WIN` + `F` |
+| Take Screenshot (saved to clipboard) | `WIN` + `SHIFT` + `S` |
+| In Floating, move window | `WIN` + `RIGHT_CLICK` + `MOVE_MOUSE` |
+| In Floating, resize window | `WIN` + `LEFT_CLICK` + `MOVE_MOUSE` |
+| Move focus | `WIN` + `ARROW_KEYS` |
+| Move Apps in the workspace | `WIN` + `SHIFT` + `ARROW_KEYS` |
+| Resize Apps | `WIN` + `CTRL` + `ARROW_KEYS` |
+
+### Terminal (Kitty)
+
+| Action | Shortcut |
+| ------ | -------- |
+| Copy selected text (Default Buffer) | `CTRL` + `SHIFT` + `C` |
+| Paste selected text (Default Buffer) | `CTRL` + `SHIFT` + `V` |
+| Copy selected text (Alternative Buffer 1) | `F1` |
+| Paste selected text (Alternative Buffer 1) | `F2` |
+| Copy selected text (Alternative Buffer 2) | `F3` |
+| Paste selected text (Alternative Buffer 2) | `F4` |
+| Show terminal history ([fzf](https://github.com/junegunn/fzf)) | `CTRL` + `R` |
+| Search files recursively from current directory ([fzf](https://github.com/junegunn/fzf)) | `CTRL` + `T` |
+| Create new pane inside the current tab | `CTRL` + `SHIFT` + `ENTER` |
+| Create new tab | `CTRL` + `SHIFT` + `T` |
+| Rename tab | `CTRL` + `SHIFT` + `ALT` + `T` |
+| Change to next tab | `CTRL` + `TAB` |
+| Close pane | `CTRL` + `SHIFT` + `W` |
+| Change layout | `CTRL` + `SHIFT` + `L` |
+| Move focuse to pane (same tab) | `CTRL` + `ARROW_KEYS` |
+
 ## TODO
 
 - [ ] Add [NvChad](https://github.com/NvChad/NvChad) to the neovim configuration.
