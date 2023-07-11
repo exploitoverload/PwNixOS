@@ -85,7 +85,6 @@ in {
           evil-winrm
           crunch
           hashcat-utils
-          proxychains
           cadaver
           wpscan
           adreaper
@@ -101,6 +100,8 @@ in {
           adenum
           ldapdomaindump
           python311Packages.pypykatz
+          python311Packages.dsinternals
+          proxychains-ng
           responder
         ];
       };
