@@ -1,7 +1,17 @@
-{ inputs, pkgs, lib, config, ... }:
+{ inputs, pkgs, lib, config, python3, ... }:
 
 with lib;
-let cfg = config.modules.packages;
+let 
+  cfg = config.modules.packages;
+  pyenv = ps: with ps; [
+    impacket
+    dsinternals
+    pypykatz
+    lsassy
+    pip
+    ldapdomaindump
+  ];
+
 in {
     options.modules.packages = { enable = mkEnableOption "packages"; };
     config = mkIf cfg.enable {
@@ -43,8 +53,7 @@ in {
           distrobox
           dig
           # Proggrmming
-          python3
-          python311Packages.pip
+          (pkgs.python3.withPackages pyenv)
           lua
           nodejs
           php
@@ -93,14 +102,9 @@ in {
           gomapenum
           kerbrute
           nbtscanner
-          python311Packages.lsassy
-          python311Packages.pypykatz
           smbscan
           davtest
           adenum
-          ldapdomaindump
-          python311Packages.pypykatz
-          python311Packages.dsinternals
           proxychains-ng
           responder
         ];
