@@ -96,6 +96,17 @@ To get started with PwNixOS, follow these steps:
 | Change layout | `CTRL` + `SHIFT` + `L` |
 | Move focuse to pane (same tab) | `CTRL` + `ARROW_KEYS` |
 
+## Special Considerations
+
+### Neo4j start and stop
+
+In order to start or stop the service, it has to be done via systemd using the following commands
+
+```zsh
+systemctl start neo4j
+systemctl stop neo4j
+```
+
 ## TODO
 
 - [ ] Add [NvChad](https://github.com/NvChad/NvChad) to the neovim configuration.
