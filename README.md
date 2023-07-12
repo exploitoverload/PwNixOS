@@ -107,6 +107,8 @@ systemctl start neo4j
 systemctl stop neo4j
 ```
 
+At the first start of the service, the neo4j user's password for the service must be configured using the web portal located at http://localhost:7474
+
 ## TODO
 
 - [ ] Add [NvChad](https://github.com/NvChad/NvChad) to the neovim configuration.
