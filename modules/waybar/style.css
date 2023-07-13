@@ -46,6 +46,7 @@
 #battery,
 #pulseaudio,
 #custom-lock,
+#network,
 #custom-power {
   background-color: @surface0;
   padding: 0.5rem 1rem;
@@ -86,6 +87,11 @@
 
 #custom-music {
   color: @mauve;
+  border-radius: 1rem;
+}
+
+#network {
+  color: @peach;
   border-radius: 1rem;
 }
 

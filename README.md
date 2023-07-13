@@ -111,8 +111,9 @@ At the first start of the service, the neo4j user's password for the service mus
 
 ## TODO
 
+- [x] Add IP Addresses for current interface to waybar. 
 - [ ] Add [NvChad](https://github.com/NvChad/NvChad) to the neovim configuration.
-- [ ] Add IP Addresses for current interface to waybar with click to copy. 
+- [ ] Add click to copy IP in the network module of waybar.
 
 For more detailed information and documentation, please refer to the [official NixOS manual](https://nixos.org/manual/nixos/stable/index.html).
 

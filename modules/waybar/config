@@ -5,7 +5,7 @@
     // Choose the order of the modules
     "modules-left": ["wlr/workspaces"],
     "modules-center": ["custom/music"],
-    "modules-right": ["pulseaudio", "backlight", "battery", "clock", "tray", "custom/lock", "custom/power"],
+    "modules-right": ["network" ,"pulseaudio", "backlight", "battery", "clock", "tray", "custom/lock", "custom/power"],
     "wlr/workspaces": {
          "disable-scroll": true,
          "sort-by-name": true,
@@ -58,6 +58,13 @@
             "default": ["", "", " "]
         },
         "on-click": "pavucontrol"
+    },
+    "network": {
+        "format" : " {ipaddr}",
+        "format-wifi": "  {ipaddr}",
+        "format-ethernet": "󰈀 {ipaddr}",
+        "format-disconected": " Disconnected",
+        "max-length": 50,
     },
     "custom/lock": {
         "tooltip": false,
