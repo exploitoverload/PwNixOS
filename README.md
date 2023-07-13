@@ -95,6 +95,7 @@ To get started with PwNixOS, follow these steps:
 | Close pane | `CTRL` + `SHIFT` + `W` |
 | Change layout | `CTRL` + `SHIFT` + `L` |
 | Move focus to pane (same tab) | `CTRL` + `ARROW_KEYS` |
+| Jump between words in a command | `ALT` + `LEFT/RIGHT` |
 
 ## Special Considerations
 

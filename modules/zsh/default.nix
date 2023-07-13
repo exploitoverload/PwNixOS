@@ -20,6 +20,11 @@ in {
       enableAutosuggestions = true;
       enableSyntaxHighlighting = true;
 
+      initExtra = ''
+        bindkey "^[[1;3C" forward-word                  # Key Alt + Right
+        bindkey "^[[1;3D" backward-word                 # Key Alt + Left
+      '';
+
       shellAliases = {
         cat = "bat";
         vi = "nvim";
