@@ -64,6 +64,7 @@
         "format-wifi": "  {ipaddr}",
         "format-ethernet": "󰈀 {ipaddr}",
         "format-disconected": " Disconnected",
+        "on-click": "wl-copy $(ip a | grep 'inet ' | tail -n 1 | grep -oP 'inet \\K[\\d.]+')",
         "max-length": 50,
     },
     "custom/lock": {
