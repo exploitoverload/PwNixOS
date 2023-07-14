@@ -32,10 +32,6 @@ One of the standout features of NixOS is its unique package management system ca
 
 NixOS follows a declarative approach to system configuration. Instead of making changes directly to the system, you define the desired state of your system in a configuration file or flake (like this one). This configuration specifies all the packages, services, and settings you want, providing a clear and reproducible blueprint for your system. This declarative nature simplifies system administration, enables easy replication of configurations across multiple machines, and facilitates version control of your system setup.
 
-### Secure by Design
-
-NixOS prioritizes security and adopts a "secure by default" philosophy. With features like the capability-based security model, sandboxing of applications, and strict package signing policies, PwNixOS provides a robust and secure environment for your computing needs. This ensures that your system remains resilient against potential vulnerabilities and threats.
-
 ### Custom packages
 
 This flake has [custom hacking tools](https://github.com/exploitoverload/PwNixOS-Packages) that are uploaded to the NUR. The purpose of these tools is to fill in the gaps that exist today in the official repositories and create a full arsenal of tools, with well-known tools such as [BloodHound](https://github.com/BloodHoundAD/BloodHound) and lesser-known tools such as [psudohash](https://github.com/t3l3machus/psudohash).
