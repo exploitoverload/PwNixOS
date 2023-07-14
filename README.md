@@ -1,4 +1,4 @@
-# PwNixOS: A Graphical-Centric and Hacking-Oriented NixOS Flake 
+# PwNixOS: A Productivity Focused and Hacking-Oriented NixOS Flake 
 
 ![PwNixOS Logo](pics/PwNixOS.png)
 
