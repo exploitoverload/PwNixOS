@@ -113,6 +113,7 @@
   users.users.d3fault = {
     isNormalUser = true;
     extraGroups = [ "input" "wheel" "networkmanager" ];
+    initialHashedPassword = "$6$wqCHereET3WM6UIA$XeJIgGkmO2/zAkktN2JCx5hLNS3kSj6seVQBdSWoMeJ5MOrIha6B/HiDjHI4oKDKYhYVwjgQFqGpncU6OI7Ud/"; # password: d3fault
     shell = pkgs.zsh;
   };
 
