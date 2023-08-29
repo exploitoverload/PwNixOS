@@ -18,7 +18,7 @@ in {
 
       enableCompletion = true;
       enableAutosuggestions = true;
-      SyntaxHighlighting.enable = true;
+      syntaxHighlighting.enable = true;
 
       initExtra = ''
         bindkey "^[[1;3C" forward-word                  # Key Alt + Right
