@@ -3,12 +3,13 @@
     "position": "top", // Waybar position (top|bottom|left|right)
     // "width": 1280, // Waybar width
     // Choose the order of the modules
-    "modules-left": ["wlr/workspaces"],
+    "modules-left": ["hyprland/workspaces"],
     "modules-center": ["custom/music"],
     "modules-right": ["network" ,"pulseaudio", "backlight", "battery", "clock", "tray", "custom/lock", "custom/power"],
-    "wlr/workspaces": {
+    "hyprland/workspaces": {
          "disable-scroll": true,
          "sort-by-name": true,
+         "on-click": "activate",
          "format": " {icon} ",
          "format-icons": {
              "default": "",
