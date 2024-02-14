@@ -29,8 +29,8 @@ in {
         cat = "bat";
         vi = "nvim";
         vim = "nvim";
-        ls = "exa --icons";
-        tree = "exa --tree --icons";
+        ls = "eza --icons";
+        tree = "eza --tree --icons";
         kali = "distrobox enter --root kali-rolling";
         kali-create = "distrobox create --root kalilinux/kali-rolling";
         arch = "distrobox enter --root archlinux";

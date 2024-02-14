@@ -47,6 +47,7 @@
 #pulseaudio,
 #custom-lock,
 #network,
+#window,
 #custom-power {
   background-color: @surface0;
   padding: 0.5rem 1rem;
@@ -88,6 +89,15 @@
 #custom-music {
   color: @mauve;
   border-radius: 1rem;
+}
+
+#window {
+  color: @green;
+  border-radius: 1rem;
+}
+
+window#waybar.empty #window {
+  background-color: transparent;
 }
 
 #network {

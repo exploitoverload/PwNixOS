@@ -111,7 +111,9 @@ At the first start of the service, the neo4j user's password for the service mus
 
 - [x] Add IP Addresses for current interface to waybar. 
 - [x] Add click to copy IP in the network module of waybar.
-- [ ] Add [NvChad](https://github.com/NvChad/NvChad) to the neovim configuration.
+- [x] Add [NvChad](https://github.com/NvChad/NvChad) to the neovim configuration.
+- [ ] Move waydroid to a module
+- [ ] Move logitech wireless to a module
 
 For more detailed information and documentation, please refer to the [official NixOS manual](https://nixos.org/manual/nixos/stable/index.html).
 
@@ -120,3 +122,4 @@ For more detailed information and documentation, please refer to the [official N
 * [Notusknot dotfiles](https://github.com/notusknot/dotfiles-nix)
 * [Catppuccin theme](https://github.com/catppuccin/catppuccin)
 * [Rubyowo dotfiles](https://github.com/rubyowo/dotfiles)
+* [doctorfree Lazyman Neovim Configuration Manager](https://github.com/doctorfree)

@@ -7,7 +7,7 @@ in {
   options.modules.hyprland = { enable = mkEnableOption "hyprland"; };
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-      hyprpaper hyprland wl-clipboard hyprland-protocols hyprland-share-picker wlogout swayidle
+      hyprpaper hyprland wl-clipboard hyprland-protocols wlogout swayidle
     ];
 
     home.file.".config/hypr/hyprland.conf".source = ./hyprland.conf;

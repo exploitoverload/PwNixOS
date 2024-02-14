@@ -1,81 +1,93 @@
 {
-    "layer": "top", // Waybar at top layer
+  "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
-    // "width": 1280, // Waybar width
-    // Choose the order of the modules
-    "modules-left": ["hyprland/workspaces"],
+                       // "width": 1280, // Waybar width
+                       // Choose the order of the modules
+    "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": ["custom/music"],
     "modules-right": ["network" ,"pulseaudio", "backlight", "battery", "clock", "tray", "custom/lock", "custom/power"],
     "hyprland/workspaces": {
-         "disable-scroll": true,
-         "sort-by-name": true,
-         "on-click": "activate",
-         "format": " {icon} ",
-         "format-icons": {
-             "default": "",
-         },
-     },
+      "disable-scroll": true,
+      "sort-by-name": true,
+      "on-click": "activate",
+      "format": " {icon} ",
+      "format-icons": {
+        "default": "",
+      },
+    },
+    "hyprland/window": {
+      "format": "{}",
+      "rewrite": {
+        "(.*) — Mozilla Firefox": "󰈹  $1",
+        "(.*) — LibreWolf": "  $1",
+        ".* Burp Suite .*?": " Burp Suite",
+        "(.*) - CherryTree (.*)": "  CherryTree - $1",
+        ".*?zsh.*?": "  Terminal"
+      },
+      "separate-outputs": true,
+      "max-length": 47
+    },
     "tray": {
-        "icon-size": 21,
-        "spacing": 10
+      "icon-size": 21,
+      "spacing": 10
     },
     "custom/music": {
-        "format": "󰎆  {}",
-        "escape": true,
-        "interval": 5,
-        "tooltip": false,
-        "exec": "playerctl metadata --format='{{ title }}'",
-        "on-click": "playerctl play-pause",
-        "max-length": 50
+      "format": "󰎆  {}",
+      "escape": true,
+      "interval": 5,
+      "tooltip": false,
+      "exec": "playerctl metadata --format='{{ title }}'",
+      "on-click": "playerctl play-pause",
+      "max-length": 50
     },
     "clock": {
-        "timezone": "Europe/Madrid",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "󰃭  {:%d/%m/%Y}",
-        "format": "󰥔  {:%H:%M}"
+      "timezone": "Europe/Madrid",
+      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+      "format-alt": "󰃭  {:%d/%m/%Y}",
+      "format": "󰥔  {:%H:%M}"
     },
     "backlight": {
-        "device": "intel_backlight",
-        "format": "{icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
+      "device": "intel_backlight",
+      "format": "{icon}",
+      "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
     "battery": {
-        "states": {
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{icon}",
-        "tooltip-format": "{capacity}%",
-        "format-charging": "󰂄",
-        "format-plugged": "󰚥",
-        "format-alt": "{icon}",
-        "format-icons": [ "󰂎", "󰁺", "󰁻",  "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹" ]
+      "states": {
+        "warning": 30,
+        "critical": 15
+      },
+      "format": "{icon}",
+      "tooltip-format": "{capacity}%",
+      "format-charging": "󰂄",
+      "format-plugged": "󰚥",
+      "format-alt": "{icon}",
+      "format-icons": [ "󰂎", "󰁺", "󰁻",  "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹" ]
     },
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
-        "format": "{icon} {volume}%",
-        "format-muted": "",
-        "format-icons": {
-            "default": ["", "", " "]
-        },
-        "on-click": "pavucontrol"
+      // "scroll-step": 1, // %, can be a float
+      "format": "{icon} {volume}%",
+      "format-muted": "",
+      "format-icons": {
+        "default": ["", "", " "]
+      },
+      "on-click": "pavucontrol"
     },
     "network": {
-        "format" : " {ipaddr}",
-        "format-wifi": "  {ipaddr}",
-        "format-ethernet": "󰈀 {ipaddr}",
-        "format-disconected": " Disconnected",
-        "on-click": "wl-copy $(ip a | grep 'inet ' | tail -n 1 | grep -oP 'inet \\K[\\d.]+')",
-        "max-length": 50,
+      "format" : " {ipaddr}",
+      "format-wifi": "  {ipaddr}",
+      "format-ethernet": "󰈀 {ipaddr}",
+      "format-disconected": " Disconnected",
+      "on-click": "wl-copy $(ip a | grep 'inet ' | tail -n 1 | grep -oP 'inet \\K[\\d.]+')",
+      "max-length": 50,
     },
     "custom/lock": {
-        "tooltip": false,
-        "on-click": "sh -c '(sleep 0.5s; swaylock -f --screenshots --clock --indicator --indicator-radius 100 --indicator-thickness 7 --effect-blur 7x5 --grace 1 --fade-in 0.1)' & disown",
-        "format": "",
+      "tooltip": false,
+      "on-click": "sh -c '(sleep 0.5s; swaylock -f --screenshots --clock --indicator --indicator-radius 100 --indicator-thickness 7 --effect-blur 7x5 --grace 1 --fade-in 0.1)' & disown",
+      "format": "",
     },
     "custom/power": {
-        "tooltip": false,
-        "on-click": "wlogout &",
-        "format": " "
+      "tooltip": false,
+      "on-click": "wlogout &",
+      "format": " "
     }
 }

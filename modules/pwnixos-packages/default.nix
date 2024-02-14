@@ -8,12 +8,7 @@ in {
     config = mkIf cfg.enable {
         home.packages = with pkgs.nur.repos.exploitoverload; [
           ADCSKiller
-          BloodHound
-          bloodhound-python
           polenum
-          psudohash
-          seclists
-          maltego
         ];
       };
   }

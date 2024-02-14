@@ -3,6 +3,7 @@
 {
 
   nixpkgs.config.allowUnfree = true;
+
 # Remove unecessary preinstalled packages
   environment.defaultPackages = [ ];
 
@@ -12,9 +13,19 @@
 
   programs.zsh.enable = true;
 
+  programs.wireshark.enable = true;
+
+  environment.etc.openvpn.source = "${pkgs.update-resolv-conf}/libexec/openvpn";
+
 # Laptop-specific packages (the other ones are installed in `packages.nix`)
   environment.systemPackages = with pkgs; [
-    acpi tlp git pciutils greetd.tuigreet
+    acpi
+    tlp
+    git
+    pciutils
+    greetd.tuigreet
+    virt-manager
+    glib-networking
   ];
 
   services.greetd = {
@@ -27,14 +38,24 @@
     };
   };
 
+  services.openssh.enable = true;
+  systemd.services.sshd.wantedBy = lib.mkForce [];
 
+  programs.ssh.startAgent = true;
+
+  services.hardware.bolt.enable = true;
+
+  hardware.logitech.wireless.enable = true; # For Logitech mices. TODO: Move to a module.
+  hardware.logitech.wireless.enableGraphical = true;
 
 # Adding XWayland support
   programs.hyprland.xwayland.enable = true;
 
+  virtualisation.libvirtd.enable = true; # For VMs using virt-manager.
+
 # Install fonts
   fonts = {
-    fonts = with pkgs; [
+    packages = with pkgs; [
       jetbrains-mono
         roboto
         openmoji-color
@@ -63,7 +84,9 @@
     };
   };
 
-# DBUS??
+  xdg.portal.config.common.default = "*";
+
+# DBUS
   
   programs.dconf.enable = true;
   services.dbus.packages = with pkgs; [ dconf ];
@@ -73,6 +96,9 @@
     enable = true;
     package = lib.mkForce pkgs.gnome3.gvfs;
   };
+
+# Firmware Updater
+  services.fwupd.enable = true;
 
 # Nix settings, auto cleanup and enable flakes
   nix = {
@@ -112,7 +138,7 @@
 # Set up user and enable sudo
   users.users.d3fault = {
     isNormalUser = true;
-    extraGroups = [ "input" "wheel" "networkmanager" ];
+    extraGroups = [ "input" "wheel" "networkmanager" "libvirtd" "wireshark" ];
     initialHashedPassword = "$6$wqCHereET3WM6UIA$XeJIgGkmO2/zAkktN2JCx5hLNS3kSj6seVQBdSWoMeJ5MOrIha6B/HiDjHI4oKDKYhYVwjgQFqGpncU6OI7Ud/"; # password: d3fault
     shell = pkgs.zsh;
   };
@@ -121,11 +147,13 @@
   networking = {
     networkmanager.enable = true;
     firewall.enable = false; # This one is necessary to expose ports to the netwok. Usefull for smbserver, responder, http.server, ...
+    extraHosts =
+    ''
+    ''; # For adding hosts.
   };
 
 # Set environment variables
   environment.variables = {
-    NIXOS_CONFIG = "$HOME/.config/nixos/configuration.nix";
     NIXOS_CONFIG_DIR = "$HOME/.config/nixos/";
     NIXPKGS_ALLOW_INSECURE = "1";
     XDG_DATA_HOME = "$HOME/.local/share";
@@ -141,12 +169,13 @@
     NIXPKGS_ALLOW_UNFREE = "1";
   };
 
+  environment.localBinInPath = true;
 # Security 
   security = {
     sudo.enable = true;
 # Extra security
     protectKernelImage = true;
-    pam.services.swaylock = {};
+    pam.services.gtklock.text = lib.readFile "${pkgs.gtklock}/etc/pam.d/gtklock";
   };
 
 # Sound (PipeWire)
@@ -162,13 +191,21 @@
 
 # Disable bluetooth, enable pulseaudio, enable opengl (for Wayland)
   hardware = {
-    bluetooth.enable = false;
+    bluetooth.enable = true;
     opengl = {
       enable = true;
       driSupport = true;
     };
   };
 
+  virtualisation.waydroid.enable = true; # For mobile app pentesting TODO: Move to module.
+  programs.adb.enable = true;
+
+# Kerberos
+  security.krb5.enable = true;
+
+  services.blueman.enable = true;
+
 # Do not touch
-  system.stateVersion = "23.05";
+  system.stateVersion = "23.11";
 }

@@ -13,5 +13,6 @@
     ./gtk
     ./direnv
     ./pwnixos-packages
+    ./nvim
   ];
 }

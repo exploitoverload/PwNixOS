@@ -10,6 +10,7 @@ let
     lsassy
     pip
     ldapdomaindump
+    requests
   ];
 
 in {
@@ -17,7 +18,7 @@ in {
     config = mkIf cfg.enable {
         home.packages = with pkgs; [
           # Basic Tools
-          exa
+          eza
           fzf
           ripgrep
           ffmpeg
@@ -34,8 +35,7 @@ in {
           unzip
           pavucontrol
           playerctl
-          swaylock-fancy
-          swaylock-effects
+          gtklock
           brightnessctl
           inputs.hypr-contrib.packages.${pkgs.system}.grimblast
           openssl
@@ -52,6 +52,11 @@ in {
           unrar
           distrobox
           dig
+          moreutils
+          jq
+          perl
+          binutils
+          zlib
           # Proggrmming
           (pkgs.python3.withPackages pyenv)
           lua
@@ -71,6 +76,7 @@ in {
           cinnamon.nemo-fileroller
           cinnamon.folder-color-switcher
           remmina
+          keepassxc
           # Offensive Tools and Applications
           nmap
           crackmapexec
@@ -96,7 +102,6 @@ in {
           hashcat-utils
           cadaver
           wpscan
-          adreaper
           certipy
           coercer
           gomapenum
@@ -106,7 +111,15 @@ in {
           davtest
           adenum
           proxychains-ng
+          aircrack-ng
+          hcxtools
+          hcxdumptool
+          wordlists
+          bloodhound
+          bloodhound-py
+          psudohash
           responder
+          maltego
         ];
       };
   }
