@@ -42,12 +42,12 @@ To get started with PwNixOS, follow these steps:
 
 1. [Installation](https://nixos.org/manual/nixos/stable/index.html#ch-installation): Install NixOS on your machine by following the official installation guide.
 2. Clone this repo: `git clone https://github.com/exploitoverload/PwNixOS.git ~/.config/nixos`
-3. Edit username: By default, the username for all the configuration is `d3fault` and the hostname is `pwnix`. You can change this as you want by editing in all the files (don't forget to rename the folder inside hosts). `grep -i -R d3fault ~/.config/nixos/` and `grep -i -R pwnix ~/.config/nixos/` are usefull.
+3. Edit the username and hostname in flake.nix file with the names of your choice (lines 25 and 26).
 4. Copy your specific hardware-configuration.nix file: You need to copy you hardware-configuration.nix file located at /etc/nixos/hardware-configuration.nix to the host folder.
 5. Review default.nix file inside pwnix host folder. It contains the configuration for nvidia-optimus and intel graphics. You have to choose one, comment the other.
 6. Enable Nix-Command and Flakes options: Edit your configuration.nix file located at /etc/nixos/configuration.nix adding this line -> `nix.settings.experimental-features = [ "nix-command" "flakes" ];`.
 7. Rebuild your system (without the flake): Open a terminal and run -> `sudo nixos-rebuild switch`. 
-8. Apply the flake: Open a terminal and inside `~/.config/nixos/` run `sudo nixos-rebuild boot --flake <host type> --upgrade`.
+8. Apply the flake: Open a terminal and inside `~/.config/nixos/` run `sudo nixos-rebuild boot --flake .#pwnix`.
 9. Reboot and cross fingers.
 
 ## Keyboard Shortcuts

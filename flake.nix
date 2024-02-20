@@ -20,11 +20,17 @@
       pkgs = nixpkgs.legacyPackages.${system}; 
       lib = nixpkgs.lib;
 
+      # ---CUSTOM SETTINGS---
+
+      user = "d3fault"; # Change this to set the main user.
+      hostName = "pwnix"; # Change this to set the hostname of the machine.
+
+      # ---CUSTOM SETTINGS---
+
       mkSystem = pkgs: system: hostname:
         pkgs.lib.nixosSystem {
           system = system;
           modules = [
-          { networking.hostName = hostname; }
           ./modules/system/configuration.nix 
             (./. + "/hosts/${hostname}/hardware-configuration.nix")
 	          (./. + "/hosts/${hostname}/default.nix") # For additional configuration read this file (nvidia, intel, ...).
@@ -33,20 +39,20 @@
               home-manager = {
                 useUserPackages = true;
                 useGlobalPkgs = true;
-                extraSpecialArgs = { inherit inputs; };
-                users.d3fault = (./. + "/hosts/${hostname}/user.nix");
+                extraSpecialArgs = { inherit inputs user; };
+                users.${user} = (./. + "/hosts/${hostname}/user.nix");
               };
               nixpkgs.overlays = [
                 nur.overlay
               ];
             }
           ];
-          specialArgs = {inherit inputs; };
+          specialArgs = {inherit inputs user hostName; };
         };
 
     in {
       nixosConfigurations = {
-        pwnix = mkSystem inputs.nixpkgs "x86_64-linux" "pwnix"; # Change 'pwnix' here and in the name folder inside hosts to change the hostname.
-      };
+        pwnix = mkSystem inputs.nixpkgs "x86_64-linux" "pwnix";
+        };
     };
 }

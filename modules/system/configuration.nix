@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, lib, ... }:
+{ config, pkgs, inputs, lib, user, hostName, ... }:
 
 {
 
@@ -33,7 +33,7 @@
     settings = {
       default_session = {
         command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --greeting 'Welcome to PwNixOS!' --cmd Hyprland";
-        user = "d3fault";
+        user = "${user}";
       };
     };
   };
@@ -103,7 +103,7 @@
 # Nix settings, auto cleanup and enable flakes
   nix = {
     settings.auto-optimise-store = true;
-    settings.allowed-users = [ "d3fault" ];
+    settings.allowed-users = [ "${user}" ];
     gc = {
       automatic = true;
       dates = "weekly";
@@ -136,7 +136,7 @@
   };
 
 # Set up user and enable sudo
-  users.users.d3fault = {
+  users.users.${user} = {
     isNormalUser = true;
     extraGroups = [ "input" "wheel" "networkmanager" "libvirtd" "wireshark" ];
     initialHashedPassword = "$6$wqCHereET3WM6UIA$XeJIgGkmO2/zAkktN2JCx5hLNS3kSj6seVQBdSWoMeJ5MOrIha6B/HiDjHI4oKDKYhYVwjgQFqGpncU6OI7Ud/"; # password: d3fault
@@ -146,6 +146,7 @@
 # Set up networking and secure it
   networking = {
     networkmanager.enable = true;
+    hostName = "${hostName}";
     firewall.enable = false; # This one is necessary to expose ports to the netwok. Usefull for smbserver, responder, http.server, ...
     extraHosts =
     ''
