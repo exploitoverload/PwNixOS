@@ -1,6 +1,6 @@
 # PwNixOS: A Productivity Focused and Hacking-Oriented NixOS Flake 
 
-![PwNixOS Logo](pics/PwNixOS.png)
+<p align="center"><img src="pics/PwNixOS.png" width="200" height="200"></p>
 
 ## Introduction
 
@@ -42,7 +42,7 @@ To get started with PwNixOS, follow these steps:
 
 1. [Installation](https://nixos.org/manual/nixos/stable/index.html#ch-installation): Install NixOS on your machine by following the official installation guide.
 2. Clone this repo: `git clone https://github.com/exploitoverload/PwNixOS.git ~/.config/nixos`
-3. Edit the username and hostname in flake.nix file with the names of your choice (lines 25 and 26).
+3. Edit the username and hostname in flake.nix file with the names of your choice (lines 29 and 30).
 4. Copy your specific hardware-configuration.nix file: You need to copy you hardware-configuration.nix file located at /etc/nixos/hardware-configuration.nix to the host folder.
 5. Review default.nix file inside pwnix host folder. It contains the configuration for nvidia-optimus and intel graphics. You have to choose one, comment the other.
 6. Enable Nix-Command and Flakes options: Edit your configuration.nix file located at /etc/nixos/configuration.nix adding this line -> `nix.settings.experimental-features = [ "nix-command" "flakes" ];`.
