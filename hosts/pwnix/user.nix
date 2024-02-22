@@ -1,20 +1,24 @@
-{ config, lib, inputs, pkgs, ...}:
-
 {
-    imports = [ 
+  config,
+  lib,
+  inputs,
+  pkgs,
+  ...
+}: {
+  imports = [
     ../../modules/default.nix
-    ];
-    config.modules = {
-      dunst.enable = true;
-      hyprland.enable = true;
-      kitty.enable = true;
-      packages.enable = true;
-      waybar.enable = true;
-      zsh.enable = true;
-      fuzzel.enable = true;
-      gtk.enable = true;
-      direnv.enable = true;
-      pwnixos-packages.enable = true;
-      nvim.enable = true;
-    };
+  ];
+  config.modules = {
+    dunst.enable = true;
+    hyprland.enable = true;
+    kitty.enable = true;
+    packages.enable = true;
+    waybar.enable = true;
+    zsh.enable = true;
+    fuzzel.enable = true;
+    gtk.enable = true;
+    direnv.enable = true;
+    pwnixos-packages.enable = true;
+    nvim.enable = true;
+  };
 }

@@ -1,13 +1,18 @@
-{ config, pkgs, inputs, lib, user, hostName, ... }:
-
 {
-
+  config,
+  pkgs,
+  inputs,
+  lib,
+  user,
+  hostName,
+  ...
+}: {
   nixpkgs.config.allowUnfree = true;
 
-# Remove unecessary preinstalled packages
-  environment.defaultPackages = [ ];
+  # Remove unecessary preinstalled packages
+  environment.defaultPackages = [];
 
-  environment.sessionVariables = { GTK_USE_PORTAL = "1"; };
+  environment.sessionVariables = {GTK_USE_PORTAL = "1";};
 
   services.printing.enable = true;
 
@@ -17,7 +22,7 @@
 
   environment.etc.openvpn.source = "${pkgs.update-resolv-conf}/libexec/openvpn";
 
-# Laptop-specific packages (the other ones are installed in `packages.nix`)
+  # Laptop-specific packages (the other ones are installed in `packages.nix`)
   environment.systemPackages = with pkgs; [
     acpi
     tlp
@@ -48,31 +53,30 @@
   hardware.logitech.wireless.enable = true; # For Logitech mices. TODO: Move to a module.
   hardware.logitech.wireless.enableGraphical = true;
 
-# Adding XWayland support
+  # Adding XWayland support
   programs.hyprland.xwayland.enable = true;
 
   virtualisation.libvirtd.enable = true; # For VMs using virt-manager.
 
-# Install fonts
+  # Install fonts
   fonts = {
     packages = with pkgs; [
       jetbrains-mono
-        roboto
-        openmoji-color
-        (nerdfonts.override { fonts = [ "FiraCode" ]; })
-        (nerdfonts.override { fonts = [ "FantasqueSansMono" ];})
+      roboto
+      openmoji-color
+      (nerdfonts.override {fonts = ["FiraCode"];})
+      (nerdfonts.override {fonts = ["FantasqueSansMono"];})
     ];
 
     fontconfig = {
       hinting.autohint = true;
       defaultFonts = {
-        emoji = [ "OpenMoji Color" ];
+        emoji = ["OpenMoji Color"];
       };
     };
   };
 
-
-# Wayland stuff: enable XDG integration
+  # Wayland stuff: enable XDG integration
   xdg = {
     icons.enable = true;
     portal = {
@@ -86,10 +90,10 @@
 
   xdg.portal.config.common.default = "*";
 
-# DBUS
-  
+  # DBUS
+
   programs.dconf.enable = true;
-  services.dbus.packages = with pkgs; [ dconf ];
+  services.dbus.packages = with pkgs; [dconf];
   services.dbus.enable = true;
 
   services.gvfs = {
@@ -97,13 +101,13 @@
     package = lib.mkForce pkgs.gnome3.gvfs;
   };
 
-# Firmware Updater
+  # Firmware Updater
   services.fwupd.enable = true;
 
-# Nix settings, auto cleanup and enable flakes
+  # Nix settings, auto cleanup and enable flakes
   nix = {
     settings.auto-optimise-store = true;
-    settings.allowed-users = [ "${user}" ];
+    settings.allowed-users = ["${user}"];
     gc = {
       automatic = true;
       dates = "weekly";
@@ -113,10 +117,10 @@
       experimental-features = nix-command flakes
       keep-outputs = true
       keep-derivations = true
-      '';
+    '';
   };
 
-# Boot settings: clean /tmp/, latest kernel and enable bootloader
+  # Boot settings: clean /tmp/, latest kernel and enable bootloader
   boot = {
     tmp.cleanOnBoot = true;
     loader = {
@@ -127,7 +131,7 @@
     };
   };
 
-# Set up locales (timezone and keyboard layout)
+  # Set up locales (timezone and keyboard layout)
   time.timeZone = "Europe/Madrid";
   i18n.defaultLocale = "es_ES.UTF-8";
   console = {
@@ -135,25 +139,24 @@
     keyMap = "es";
   };
 
-# Set up user and enable sudo
+  # Set up user and enable sudo
   users.users.${user} = {
     isNormalUser = true;
-    extraGroups = [ "input" "wheel" "networkmanager" "libvirtd" "wireshark" ];
+    extraGroups = ["input" "wheel" "networkmanager" "libvirtd" "wireshark"];
     initialHashedPassword = "$6$wqCHereET3WM6UIA$XeJIgGkmO2/zAkktN2JCx5hLNS3kSj6seVQBdSWoMeJ5MOrIha6B/HiDjHI4oKDKYhYVwjgQFqGpncU6OI7Ud/"; # password: d3fault
     shell = pkgs.zsh;
   };
 
-# Set up networking and secure it
+  # Set up networking and secure it
   networking = {
     networkmanager.enable = true;
     hostName = "${hostName}";
     firewall.enable = false; # This one is necessary to expose ports to the netwok. Usefull for smbserver, responder, http.server, ...
-    extraHosts =
-    ''
+    extraHosts = ''
     ''; # For adding hosts.
   };
 
-# Set environment variables
+  # Set environment variables
   environment.variables = {
     NIXOS_CONFIG_DIR = "$HOME/.config/nixos/";
     NIXPKGS_ALLOW_INSECURE = "1";
@@ -171,26 +174,26 @@
   };
 
   environment.localBinInPath = true;
-# Security 
+  # Security
   security = {
     sudo.enable = true;
-# Extra security
+    # Extra security
     protectKernelImage = true;
     pam.services.gtklock.text = lib.readFile "${pkgs.gtklock}/etc/pam.d/gtklock";
   };
 
-# Sound (PipeWire)
-  sound.enable = true; 
+  # Sound (PipeWire)
+  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-    };
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
 
-# Disable bluetooth, enable pulseaudio, enable opengl (for Wayland)
+  # Disable bluetooth, enable pulseaudio, enable opengl (for Wayland)
   hardware = {
     bluetooth.enable = true;
     opengl = {
@@ -202,11 +205,11 @@
   virtualisation.waydroid.enable = true; # For mobile app pentesting TODO: Move to module.
   programs.adb.enable = true;
 
-# Kerberos
+  # Kerberos
   security.krb5.enable = true;
 
   services.blueman.enable = true;
 
-# Do not touch
+  # Do not touch
   system.stateVersion = "23.11";
 }

@@ -4,7 +4,6 @@
   lib,
   ...
 }: {
-
   environment.systemPackages = with pkgs; [
     vulkan-loader
     vulkan-validation-layers
@@ -16,7 +15,7 @@
   hardware.nvidia.prime = {
     offload.enable = true;
     nvidiaBusId = "PCI:1:0:0";
-    intelBusId = "PCI:0:2:0"; 
+    intelBusId = "PCI:0:2:0";
     sync.enable = true;
   };
   hardware.nvidia.nvidiaSettings = true;
@@ -27,5 +26,5 @@
     finegrained = true;
   };
 
-    programs.hyprland.nvidiaPatches = true;
+  programs.hyprland.nvidiaPatches = true;
 }
