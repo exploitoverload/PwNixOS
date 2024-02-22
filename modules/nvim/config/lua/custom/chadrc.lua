@@ -29,12 +29,12 @@ M.ui = {
     header = header,
     buttons = {
       { "  Find File", ", f f", "Telescope find_files" },
-      { "  Recent Files", ", f o", "Telescope oldfiles" },
-      { "  Find Word", ", f w", "Telescope live_grep" },
+      { "󰈚  Recent Files", ", f o", "Telescope oldfiles" },
+      { "󰈭  Find Word", ", f w", "Telescope live_grep" },
       { "  Bookmarks", ", b m", "Telescope marks" },
       { "  Themes", ", t h", "Telescope themes" },
       { "  Mappings", ", c h", "NvCheatsheet" },
-      { "  Quit", ", q  ", "quit" },
+      { "󰅚  Quit", ", q  ", "quit" },
     },
   },
 
