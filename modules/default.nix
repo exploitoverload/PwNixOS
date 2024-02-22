@@ -4,7 +4,7 @@
   config,
   ...
 }: {
-  home.stateVersion = "23.05";
+  home.stateVersion = "23.11";
   imports = [
     ./hyprland
     ./packages
