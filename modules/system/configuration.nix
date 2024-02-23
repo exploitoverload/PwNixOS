@@ -199,9 +199,6 @@
     };
   };
 
-  virtualisation.waydroid.enable = true; # For mobile app pentesting TODO: Move to module.
-  programs.adb.enable = true;
-
   # Kerberos
   security.krb5.enable = true;
 
