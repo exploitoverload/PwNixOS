@@ -50,9 +50,6 @@
 
   services.hardware.bolt.enable = true;
 
-  hardware.logitech.wireless.enable = true; # For Logitech mices. TODO: Move to a module.
-  hardware.logitech.wireless.enableGraphical = true;
-
   # Adding XWayland support
   programs.hyprland.xwayland.enable = true;
 
