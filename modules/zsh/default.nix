@@ -12,7 +12,13 @@ in {
     home.packages = with pkgs; [
       zsh
       fzf
+      zoxide
     ];
+
+    programs.zoxide = {
+      enable = true;
+      enableZshIntegration = true;
+    };
 
     programs.zsh = {
       enable = true;
@@ -30,6 +36,7 @@ in {
 
       shellAliases = {
         cat = "bat";
+        cd = "z";
         vi = "nvim";
         vim = "nvim";
         ls = "eza --icons";
