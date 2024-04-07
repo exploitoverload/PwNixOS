@@ -30,7 +30,7 @@
 
     mkSystem = pkgs: system: hostname:
       pkgs.lib.nixosSystem {
-        system = system;
+        inherit system;
         modules = [
           ./modules/system/configuration.nix
           (./. + "/hosts/${hostname}/hardware-configuration.nix")
