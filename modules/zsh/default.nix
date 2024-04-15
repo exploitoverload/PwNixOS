@@ -12,7 +12,6 @@ in {
     home.packages = with pkgs; [
       zsh
       fzf
-      zoxide
     ];
 
     programs.zoxide = {

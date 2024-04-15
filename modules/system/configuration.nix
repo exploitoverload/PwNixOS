@@ -10,7 +10,7 @@
   nixpkgs.config.allowUnfree = true;
 
   # Remove unecessary preinstalled packages
-  environment.defaultPackages = [];
+  environment.defaultPackages = lib.mkForce [];
 
   environment.sessionVariables = {GTK_USE_PORTAL = "1";};
 
@@ -180,7 +180,7 @@
   };
 
   # Sound (PipeWire)
-  sound.enable = true;
+  sound.enable = false;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
