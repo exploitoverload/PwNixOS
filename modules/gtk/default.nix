@@ -14,31 +14,28 @@ in {
       gtk-engine-murrine
       gnome.gnome-themes-extra
     ];
-    home.sessionVariables.GTK_THEME = "Catppuccin-Macchiato-Compact-Mauve-Dark";
+
+    catppuccin = {
+      enable = true;
+      accent = "mauve";
+      flavor = "macchiato";
+      pointerCursor.enable = true;
+    };
+
+    programs.waybar.catppuccin.enable = false;
+
     gtk = {
       enable = true;
-      theme = {
-        name = "Catppuccin-Macchiato-Compact-Mauve-Dark";
-        package = pkgs.catppuccin-gtk.override {
-          accents = ["mauve"];
-          size = "compact";
-          tweaks = [];
-          variant = "macchiato";
+      catppuccin = {
+        enable = true;
+        flavor = "macchiato";
+        accent = "mauve";
+        gnomeShellTheme = true;
+        icon = {
+          enable = true;
+          flavor = "macchiato";
         };
       };
-      cursorTheme = {
-        name = "Catppuccin-Macchiato-Mauve-Cursors";
-        package = pkgs.catppuccin-cursors.macchiatoMauve;
-      };
-      iconTheme = {
-        name = "Papirus-Dark";
-        package = pkgs.catppuccin-papirus-folders;
-      };
-    };
-    home.pointerCursor = {
-      gtk.enable = true;
-      package = pkgs.catppuccin-cursors.macchiatoMauve;
-      name = "Catppuccin-Macchiato-Mauve-Cursors";
     };
   };
 }

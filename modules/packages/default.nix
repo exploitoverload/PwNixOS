@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  stable,
   lib,
   config,
   python3,
@@ -42,7 +43,7 @@ in {
       playerctl
       gtklock
       brightnessctl
-      inputs.hypr-contrib.packages.${pkgs.system}.grimblast
+      grimblast
       openssl
       cifs-utils
       mlocate
@@ -84,7 +85,7 @@ in {
       keepassxc
       # Offensive Tools and Applications
       nmap
-      crackmapexec
+      netexec
       gobuster
       theharvester
       ffuf
@@ -102,7 +103,7 @@ in {
       john
       thc-hydra
       whatweb
-      evil-winrm
+      stable.evil-winrm # Issues with unstable, back to stable.
       crunch
       hashcat-utils
       cadaver

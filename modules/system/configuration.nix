@@ -50,8 +50,11 @@
 
   services.hardware.bolt.enable = true;
 
-  # Adding XWayland support
-  programs.hyprland.xwayland.enable = true;
+  # Adding Hyprland with XWayland support
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
 
   virtualisation.libvirtd.enable = true; # For VMs using virt-manager.
 
@@ -179,24 +182,9 @@
     pam.services.gtklock.text = lib.readFile "${pkgs.gtklock}/etc/pam.d/gtklock";
   };
 
-  # Sound (PipeWire)
-  sound.enable = false;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
-
-  # Disable bluetooth, enable pulseaudio, enable opengl (for Wayland)
+  # Enable Bluetooth
   hardware = {
     bluetooth.enable = true;
-    opengl = {
-      enable = true;
-      driSupport = true;
-    };
   };
 
   # Kerberos
@@ -205,5 +193,5 @@
   services.blueman.enable = true;
 
   # Do not touch
-  system.stateVersion = "23.11";
+  system.stateVersion = "24.05";
 }

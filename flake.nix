@@ -3,18 +3,21 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05"; # In order to fix stability issues in packages or options.
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur.url = "github:nix-community/NUR";
-    hypr-contrib.url = "github:hyprwm/contrib";
+    catppuccin.url = "github:catppuccin/nix"; # For theming.
   };
 
   outputs = {
     nixpkgs,
     home-manager,
     nur,
+    nixpkgs-stable,
+    catppuccin,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -40,7 +43,13 @@
             home-manager = {
               useUserPackages = true;
               useGlobalPkgs = true;
-              extraSpecialArgs = {inherit inputs user;};
+              extraSpecialArgs = {
+                inherit inputs user;
+                stable = import nixpkgs-stable {
+                  inherit system;
+                  config.allowUnFree = true;
+                };
+              };
               users.${user} = ./. + "/hosts/${hostname}/user.nix";
             };
             nixpkgs.overlays = [
@@ -48,7 +57,13 @@
             ];
           }
         ];
-        specialArgs = {inherit inputs user hostName;};
+        specialArgs = {
+          inherit inputs user hostName;
+          stable = import nixpkgs-stable {
+            inherit system;
+            config.allowUnFree = true;
+          };
+        };
       };
   in {
     nixosConfigurations = {
