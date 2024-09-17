@@ -50,12 +50,6 @@
 
   services.hardware.bolt.enable = true;
 
-  # Adding Hyprland with XWayland support
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
-
   virtualisation.libvirtd.enable = true; # For VMs using virt-manager.
 
   # Install fonts
@@ -179,7 +173,7 @@
     sudo.enable = true;
     # Extra security
     protectKernelImage = true;
-    pam.services.gtklock.text = lib.readFile "${pkgs.gtklock}/etc/pam.d/gtklock";
+    pam.services.hyprlock = {};
   };
 
   # Enable Bluetooth
