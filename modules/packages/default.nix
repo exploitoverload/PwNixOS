@@ -77,10 +77,10 @@ in {
       wireshark
       cherrytree
       burpsuite
-      cinnamon.nemo-with-extensions
-      cinnamon.nemo-emblems
-      cinnamon.nemo-fileroller
-      cinnamon.folder-color-switcher
+      nemo-with-extensions
+      nemo-emblems
+      nemo-fileroller
+      folder-color-switcher
       remmina
       keepassxc
       # Offensive Tools and Applications

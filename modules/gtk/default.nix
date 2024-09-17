@@ -12,7 +12,7 @@ in {
     home.packages = with pkgs; [
       dconf
       gtk-engine-murrine
-      gnome.gnome-themes-extra
+      gnome-themes-extra
     ];
 
     catppuccin = {
