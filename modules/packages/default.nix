@@ -126,6 +126,7 @@ in {
       psudohash
       responder
       maltego
+      polenum
     ];
   };
 }

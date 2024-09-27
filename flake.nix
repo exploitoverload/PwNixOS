@@ -8,14 +8,12 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nur.url = "github:nix-community/NUR";
     catppuccin.url = "github:catppuccin/nix"; # For theming.
   };
 
   outputs = {
     nixpkgs,
     home-manager,
-    nur,
     nixpkgs-stable,
     catppuccin,
     ...
@@ -52,9 +50,6 @@
               };
               users.${user} = ./. + "/hosts/${hostname}/user.nix";
             };
-            nixpkgs.overlays = [
-              nur.overlay
-            ];
           }
         ];
         specialArgs = {
