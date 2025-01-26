@@ -19,7 +19,9 @@ in {
     ];
 
     hardware.nvidia.prime = {
-      offload.enable = true;
+      #  "PRIME Sync and Offload Mode cannot be enabled at the same time."
+      # https://nixos.wiki/wiki/Nvidia
+      offload.enable = false;
       nvidiaBusId = "PCI:1:0:0";
       intelBusId = "PCI:0:2:0";
       sync.enable = true;
