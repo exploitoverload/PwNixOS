@@ -9,6 +9,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     catppuccin.url = "github:catppuccin/nix"; # For theming.
+    nix4nvchad = {
+      url = "github:nix-community/nix4nvchad";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -16,6 +20,7 @@
     home-manager,
     nixpkgs-stable,
     catppuccin,
+    nix4nvchad,
     ...
   } @ inputs: let
     system = "x86_64-linux";

@@ -48,6 +48,8 @@
 
   programs.ssh.startAgent = true;
 
+  programs.nix-ld.enable = true;
+
   services.hardware.bolt.enable = true;
 
   virtualisation.libvirtd.enable = true; # For VMs using virt-manager.

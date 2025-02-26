@@ -7,6 +7,7 @@
   home.stateVersion = "24.05";
   imports = [
     inputs.catppuccin.homeManagerModules.catppuccin
+    inputs.nix4nvchad.homeManagerModule
     ./hyprland
     ./packages
     ./dunst
