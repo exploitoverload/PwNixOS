@@ -66,6 +66,7 @@ To get started with PwNixOS, follow these steps:
 | Toggle floating mode in foused app | `WIN` + `V` |
 | Toggle fullscreen mode in focused app | `WIN` + `F` |
 | Take Screenshot (saved to clipboard) | `WIN` + `SHIFT` + `S` |
+| Open Clipse (Clipboard Manager) | `WIN` + `SHIFT` + `V` |
 | In Floating, move window | `WIN` + `RIGHT_CLICK` + `MOVE_MOUSE` |
 | In Floating, resize window | `WIN` + `LEFT_CLICK` + `MOVE_MOUSE` |
 | Move focus | `WIN` + `ARROW_KEYS` |

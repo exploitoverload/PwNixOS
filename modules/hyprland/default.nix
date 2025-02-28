@@ -13,8 +13,10 @@ in {
       hyprpaper
       hyprland
       wl-clipboard
-      hyprland-protocols
+      hyprland-qtutils
+      hyprpolkitagent
       wlogout
+      clipse
     ];
 
     home.file.".config/hypr/wallpaper.png".source = ../../pics/wallpaper.png;
@@ -80,16 +82,18 @@ in {
 
         input-field = [
           {
-            size = "200, 50";
-            position = "0, -80";
+            size = "300, 60";
+            position = "0, -47";
+            halign = "center";
+            valign = "center";
             monitor = "";
             dots_center = true;
             fade_on_empty = false;
-            font_color = "rgb(202, 211, 245)";
-            inner_color = "rgb(91, 96, 120)";
-            outer_color = "rgb(24, 25, 38)";
+            font_color = "rgb(cad3f5)";
+            inner_color = "rgb(363a4f)";
+            outer_color = "rgb(c6a0f6)";
             outline_thickness = 5;
-            placeholder_text = "<span foreground=\"##cad3f5\">Password...</span>";
+            placeholder_text = "<span foreground=\"##cad3f5\"><i>󰌾 Logged in as </i><span foreground=\"##c6a0f6\">$USER</span></span>";
             shadow_passes = 2;
           }
         ];
@@ -103,6 +107,9 @@ in {
         enableXdgAutostart = true;
       };
       xwayland.enable = true;
+      plugins = [
+        pkgs.hyprlandPlugins.hyprsplit
+      ];
       settings = {
         monitor = [
           "eDP-1,1920x1080@60,0x0,1"
@@ -118,6 +125,8 @@ in {
           "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP GTK_THEME"
           "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP GTK_THEME"
           "systemctl --user enable --now hypridle.service"
+          "systemctl --user start hyprpolkitagent"
+          "clipse -listen"
         ];
         misc = {
           disable_hyprland_logo = true;
@@ -128,6 +137,7 @@ in {
           follow_mouse = 1;
           kb_options = "grp:win_space_toggle"; # WIN + SPACE
           kb_variant = "intl,";
+          sensitivity = 0.3;
         };
         general = {
           sensitivity = 1;
@@ -161,8 +171,9 @@ in {
           pseudotile = 0;
         };
         windowrule = [
-          "float,move 0 0,pqiv"
-          "float,foot-notes"
+          "float,class:(clipse)"
+          "size 622 652,class:(clipse)"
+          "center,class:(clipse)"
         ];
         bind = [
           # Basic binds
@@ -171,6 +182,7 @@ in {
           "SUPER,V,togglefloating,"
           "SUPER,D,exec,fuzzel"
           "SUPERSHIFT,S,exec,grimblast copy area"
+          "SUPERSHIFT,V,exec,kitty --app-id=clipse clipse"
           "SUPER,F,fullscreen,0"
           "SUPER,X,exec,wlogout"
           "SUPER,L,exec,hyprlock"
@@ -190,27 +202,27 @@ in {
           "SUPERCTRL,up,resizeactive,0 -10"
           "SUPERCTRL,down,resizeactive,0 10"
           # Change to Workspace
-          "SUPER,1,workspace,1"
-          "SUPER,2,workspace,2"
-          "SUPER,3,workspace,3"
-          "SUPER,4,workspace,4"
-          "SUPER,5,workspace,5"
-          "SUPER,6,workspace,6"
-          "SUPER,7,workspace,7"
-          "SUPER,8,workspace,8"
-          "SUPER,9,workspace,9"
-          "SUPER,0,workspace,0"
+          "SUPER,1,split:workspace,1"
+          "SUPER,2,split:workspace,2"
+          "SUPER,3,split:workspace,3"
+          "SUPER,4,split:workspace,4"
+          "SUPER,5,split:workspace,5"
+          "SUPER,6,split:workspace,6"
+          "SUPER,7,split:workspace,7"
+          "SUPER,8,split:workspace,8"
+          "SUPER,9,split:workspace,9"
+          "SUPER,0,split:workspace,0"
           # Move app to workspace
-          "SUPERSHIFT,1,movetoworkspacesilent,1"
-          "SUPERSHIFT,2,movetoworkspacesilent,2"
-          "SUPERSHIFT,3,movetoworkspacesilent,3"
-          "SUPERSHIFT,4,movetoworkspacesilent,4"
-          "SUPERSHIFT,5,movetoworkspacesilent,5"
-          "SUPERSHIFT,6,movetoworkspacesilent,6"
-          "SUPERSHIFT,7,movetoworkspacesilent,7"
-          "SUPERSHIFT,8,movetoworkspacesilent,8"
-          "SUPERSHIFT,9,movetoworkspacesilent,9"
-          "SUPERSHIFT,0,movetoworkspacesilent,0"
+          "SUPERSHIFT,1,split:movetoworkspacesilent,1"
+          "SUPERSHIFT,2,split:movetoworkspacesilent,2"
+          "SUPERSHIFT,3,split:movetoworkspacesilent,3"
+          "SUPERSHIFT,4,split:movetoworkspacesilent,4"
+          "SUPERSHIFT,5,split:movetoworkspacesilent,5"
+          "SUPERSHIFT,6,split:movetoworkspacesilent,6"
+          "SUPERSHIFT,7,split:movetoworkspacesilent,7"
+          "SUPERSHIFT,8,split:movetoworkspacesilent,8"
+          "SUPERSHIFT,9,split:movetoworkspacesilent,9"
+          "SUPERSHIFT,0,split:movetoworkspacesilent,0"
           ",XF86MonBrightnessUp,exec,brightnessctl set +5%"
           ",XF86MonBrightnessDown,exec,brightnessctl set 5%-"
           ",XF86AudioRaiseVolume,exec,amixer -D pipewire sset Master 5%+"

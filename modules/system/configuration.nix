@@ -60,8 +60,8 @@
       jetbrains-mono
       roboto
       openmoji-color
-      (nerdfonts.override {fonts = ["FiraCode"];})
-      (nerdfonts.override {fonts = ["FantasqueSansMono"];})
+      nerd-fonts.fira-code
+      nerd-fonts.fantasque-sans-mono
     ];
 
     fontconfig = {
@@ -94,7 +94,7 @@
 
   services.gvfs = {
     enable = true;
-    package = lib.mkForce pkgs.gnome3.gvfs;
+    package = lib.mkForce pkgs.gnome.gvfs;
   };
 
   # Firmware Updater
